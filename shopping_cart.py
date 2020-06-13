@@ -73,3 +73,25 @@ print("TOTAL: " + to_usd(total))
 print("---------------------------------")
 print("THANKS, SEE YOU AGAIN SOON!")
 print("---------------------------------")
+
+# save to txt
+time_list = [time.year, f'{time.month:02d}', f'{time.day:02d}', f'{time.hour:02d}', f'{time.minute:02d}', f'{time.second:02d}', f'{time.microsecond:06d}']
+file_name = "/receipts/" + "-".join(str(a) for a in time_list) + ".txt"
+
+with open(file_name, "w") as file: # "w" means "open the file for writing"
+    file.write("---------------------------------")
+    file.write(store_name)
+    file.write(store_website)
+    file.write("---------------------------------")
+    file.write("CHECKOUT AT: " + time.strftime(format))
+    file.write("---------------------------------")
+    file.write("SELECTED PRODUCTS:")
+    for item in checkout_item:
+        file.write("... " + item["name"] + " (" + to_usd(item["price"]) + ")")
+    file.write("---------------------------------")
+    file.write("SUBTOTAL: " + to_usd(subtotal))
+    file.write("TAX: " + to_usd(tax))
+    file.write("TOTAL: " + to_usd(total))
+    file.write("---------------------------------")
+    file.write("THANKS, SEE YOU AGAIN SOON!")
+    file.write("---------------------------------")
