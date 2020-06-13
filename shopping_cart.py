@@ -3,8 +3,8 @@ import os
 import datetime
 import pandas as pd
 
-#csv_file_path = os.path.join(os.path.dirname(__file__),"data","products.csv")
-csv_file_path = os.path.join("/Users/annieyin/Documents/GitHub/shopping-cart","data","products.csv")
+csv_file_path = os.path.join(os.path.dirname(__file__),"data","products.csv")
+#csv_file_path = os.path.join("/Users/annieyin/Documents/GitHub/shopping-cart","data","products.csv")
 products = pd.read_csv(csv_file_path)
 
 # function to convert to USD
@@ -76,9 +76,10 @@ print("---------------------------------")
 
 # save to txt
 time_list = [time.year, f'{time.month:02d}', f'{time.day:02d}', f'{time.hour:02d}', f'{time.minute:02d}', f'{time.second:02d}', f'{time.microsecond:06d}']
-file_name = "/receipts/" + "-".join(str(a) for a in time_list) + ".txt"
+file_name = "receipts/" + "-".join(str(a) for a in time_list) + ".txt"
+txt_file_path = os.path.join(os.path.dirname(__file__), file_name)
 
-with open(file_name, "w") as file: # "w" means "open the file for writing"
+with open(txt_file_path, "w") as file: # "w" means "open the file for writing"
     file.write("---------------------------------")
     file.write(store_name)
     file.write(store_website)
