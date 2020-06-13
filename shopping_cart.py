@@ -33,6 +33,7 @@ id_list = products["id"].values
 
 # initialize user input. Run while user input is not Done
 user_input = 0
+print("Please type 'Done' after all items have been scanned")
 while (user_input != "Done"):
     # user input identifier
     user_input = input("Please input a product identifier: ")
