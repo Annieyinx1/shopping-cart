@@ -26,7 +26,6 @@ store_name = "Annie's"
 store_website = "www.annies.com"
 time = datetime.datetime.now()
 format = '%Y-%m-%d %I:%M %p'
-print(time.strftime(format))
 checkout_item = []
 subtotal = 0
 
@@ -81,18 +80,32 @@ txt_file_path = os.path.join(os.path.dirname(__file__), file_name)
 
 with open(txt_file_path, "w") as file: # "w" means "open the file for writing"
     file.write("---------------------------------")
+    file.write("\n")
     file.write(store_name)
+    file.write("\n")
     file.write(store_website)
+    file.write("\n")
     file.write("---------------------------------")
+    file.write("\n")
     file.write("CHECKOUT AT: " + time.strftime(format))
+    file.write("\n")
     file.write("---------------------------------")
+    file.write("\n")
     file.write("SELECTED PRODUCTS:")
+    file.write("\n")
     for item in checkout_item:
         file.write("... " + item["name"] + " (" + to_usd(item["price"]) + ")")
+        file.write("\n")
     file.write("---------------------------------")
+    file.write("\n")
     file.write("SUBTOTAL: " + to_usd(subtotal))
+    file.write("\n")
     file.write("TAX: " + to_usd(tax))
+    file.write("\n")
     file.write("TOTAL: " + to_usd(total))
+    file.write("\n")
     file.write("---------------------------------")
+    file.write("\n")
     file.write("THANKS, SEE YOU AGAIN SOON!")
+    file.write("\n")
     file.write("---------------------------------")
